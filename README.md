@@ -3,7 +3,12 @@
 I often have to remove hundreds of unnecessary files of same extension from my directories. What this script does is, it can take file extensions as command-line argument and remove all files of given extensions recursively.
 
 ## Instructions
-Lets say you want to delete all the **PDF** files from **D:\** drive of your computer. You simply put this script on the root of the drive and execute 
+This script depends on two external modules:
+
+* glob2 [`pip install glob2`]
+* tqdm [`pip install glob2`]
+
+Now, lets say you want to delete all the **PDF** files from **D:\** drive of your computer. You simply put this script on the root of the drive and execute 
 
 `python rbe.py pdf`
 
