@@ -6,7 +6,7 @@ I often have to remove hundreds of unnecessary files of same extension from my d
 This script depends on two external modules:
 
 * glob2 [`pip install glob2`]
-* tqdm [`pip install glob2`]
+* tqdm [`pip install tqdm`]
 
 Now, lets say you want to delete all the **PDF** files from **D:\** drive of your computer. You simply put this script on the root of the drive and execute 
 
