@@ -31,4 +31,4 @@ if len(sys.argv) > 1:
     if platform.system() == "Windows":
         os.system("notepad.exe delete_log.log")
     else:
-        "LOG: delete_log.log"
+        print("LOG: delete_log.log")
