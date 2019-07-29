@@ -1,34 +1,29 @@
-import glob2
-import os
-import platform
 import sys
-from tqdm import tqdm
+from pathlib import Path
 
-file_count = int()
+deleted_file_count = int()
 log = str()
-all_files = list()
 
-if len(sys.argv) > 1:
+if len(sys.argv) > 1: # checking if user has supplied any file extension as parameters or not.
+    p = Path('.')
     for ext in sys.argv[1:]:
-        all_files = glob2.glob("**/*." + ext)
+        file_list = list(p.rglob("*." + ext)) # creating list of files for each extension supplied by the user.
 
-        if not all_files:
-            print("NO {} FILES TO REMOVE.".format(ext.upper()))
+        if not file_list:
+            print(f"NO {ext.upper()} FILES TO REMOVE.")
             
         else:
-            print("Removing: {}".format(ext.upper()))
-            for file in tqdm(all_files):
-                if os.path.isfile(file):
-                    os.remove(file)
-                    file_count += 1
-                    log +=  "{}\n".format(file)
-            print("\n")
-    log += "{} FILES DELETED.\n".format(file_count)
+            print(f"Removing: {ext.upper()}")
+            for file in file_list:
+                f = Path(file)
+                if f.is_file():
+                    f.unlink() # removing the file.
+                    deleted_file_count += 1 # increase deleted files count.
+                    print(file) # print deleted filename to the console.
+                    log +=  f"{file}\n" # appends deleted filename to the log string.
+            print("\n", end="")
+    log += f"{deleted_file_count} FILES DELETED.\n"
 
-    with open("delete_log.log", "a") as log_file:
-        log_file.write(log)
-
-    if platform.system() == "Windows":
-        os.system("notepad.exe delete_log.log")
-    else:
-        print("LOG: delete_log.log")
+    if deleted_file_count:
+        with open("delete_log.log", "a") as log_file:
+            log_file.write(log) # write the entire log string to a file.
