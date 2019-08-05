@@ -26,4 +26,4 @@ if len(sys.argv) > 1: # checking if user has supplied any file extension as para
 
     if deleted_file_count:
         with open("delete_log.log", "a") as log_file:
-            log_file.write(log) # write the entire log string to a file.
+            log_file.write(log.encode("utf-8")) # write the entire log string to a file.
