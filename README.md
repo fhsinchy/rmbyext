@@ -1,6 +1,6 @@
 # Remove by Extension
 
-I often have to remove hundreds of unnecessary files of same extension from my directories. What this program does is, it can take file extensions as command-line argument and remove all files of given extensions recursively.
+I often have to remove hundreds of unnecessary files of same extension from my directories. What this program does is, it takes file extensions as command-line argument and removes all files of given extensions recursively.
 
 ## Instructions
 If you have `$GOPATH` setup on your computer then just clone the repo in your `src` folder. Build the code with `go build` or to run the tests execute `go test`. You can use the binary to remove files of given extension. The generic command would be
@@ -11,7 +11,7 @@ or in case of multiple extensions
 
 `rbe <file extension> <file extension>`
 
-Lets say you want to delete all the **PDF** files from a directory. You simply put the binary on that directory and execute 
+Where `rbe` is the name of the resultant binary file. Lets say you want to delete all the **PDF** files from a directory. You simply put the binary on that directory and execute 
 
 `rbe pdf`
 
