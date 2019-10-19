@@ -1,17 +1,25 @@
 package main
 
 import(
+	"fmt"
 	"io/ioutil"
 	"os"
 	"strconv"
 	"testing"
 )
 
+var ext string = "extension"
+
 func TestMain(m *testing.M) {
 	// create temporary files before testing
 	for i := 1; i <= 10; i++ {
-		os.Remove("file_" + strconv.Itoa(i) + ".extension")
-		file, _ := os.Create("file_" + strconv.Itoa(i) + ".extension")
+		os.Remove("file_" + strconv.Itoa(i) + "." + ext)
+		
+		file, err := os.Create("file_" + strconv.Itoa(i) + "." + ext)
+		if err != nil {
+			fmt.Println(err)
+			continue
+		}
 
 		file.Close()
 	}
@@ -21,7 +29,7 @@ func TestMain(m *testing.M) {
 
 	// remove temporary files after testing
 	for i := 1; i <= 10; i++ {
-		os.Remove("file_" + strconv.Itoa(i) + ".extension")
+		os.Remove("file_" + strconv.Itoa(i) + "." + ext)
 	}
 	os.Remove("delete_log.log")
 
@@ -30,9 +38,13 @@ func TestMain(m *testing.M) {
 }
 
 func TestCreateFileList(t *testing.T) {
-	p, _ := os.Getwd()
+	p, err := os.Getwd()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
 
-	var files []string = createFileList(p, "extension")
+	var files []string = createFileList(p, ext)
 
 	if len(files) != 10 {
 		t.Errorf("Expected the number of files to be exactly 10, got %v", len(files))
@@ -43,11 +55,15 @@ func TestRemoveFilesAndWriteLogToFile(t *testing.T) {
 	var deletedFileCount int
 	var log string
 
-	p, _ := os.Getwd()
+	p, err := os.Getwd()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
 
-	var files []string = createFileList(p, "extension")
+	var files []string = createFileList(p, ext)
 
-	removeFiles("extension", files, &deletedFileCount, &log)
+	removeFiles(ext, files, &deletedFileCount, &log)
 
 	if deletedFileCount != 10 {
 		t.Errorf("Expected the number of files deleted to be exactly 10, got %v", deletedFileCount)
@@ -65,7 +81,11 @@ func TestRemoveFilesAndWriteLogToFile(t *testing.T) {
 		t.Error("Expected a log file to be created")
 	}
 
-	logFileContent, _ := ioutil.ReadFile("delete_log.log")
+	logFileContent, err := ioutil.ReadFile("delete_log.log")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
 
 	if log != string(logFileContent) {
 		t.Error("Expected the log file to have same content as the log variable")
