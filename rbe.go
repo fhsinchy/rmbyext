@@ -49,7 +49,6 @@ func createFileList(p string, arg string) []string {
 		}
 		return nil
 	})
-
 	return files
 }
 
@@ -66,5 +65,6 @@ func removeFiles(arg string, files []string, deletedFileCount *int, log *string)
 }
 
 func writeLogToFile(log *string, deletedFileCount *int) {
-	ioutil.WriteFile("delete_log.log", []byte(*log + fmt.Sprintf("%v FILES DELETED.\n", *deletedFileCount)), 0666)
+	*log += fmt.Sprintf("%v FILES DELETED.\n", *deletedFileCount)
+	ioutil.WriteFile("delete_log.log", []byte(*log), 0666)
 }
