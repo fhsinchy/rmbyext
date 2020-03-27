@@ -107,6 +107,9 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# virtual environment
+env
+
 ### VisualStudioCode ###
 .vscode/*
 # !.vscode/settings.json

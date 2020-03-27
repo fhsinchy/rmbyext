@@ -3,6 +3,7 @@
 I often have to remove hundreds of unnecessary files of same extension from my directories. What this script does is, it can take file extensions as command-line argument and remove all files of given extensions recursively.
 
 ## Instructions
+
 The generic command for executing this script is
 
 `python rbe.py <file extension>`
