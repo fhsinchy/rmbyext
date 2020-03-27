@@ -1,4 +1,4 @@
-# Remove by Extension
+# Remove(rm) by Extension(ext)
 
 Assume a situation when you have to delete a lot of files of certain extension recursively from hundreds of folder. This program makes that task very easy.
 
