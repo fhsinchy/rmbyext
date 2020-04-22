@@ -23,6 +23,6 @@ setup(
         "License :: OSI Approved :: GPL-3.0 License",
         "Programming Language :: Python :: 3",
     ],
-    packages=["rmbyext"],
-    entry_points={"console_scripts": ["rmbyext=rmbyext.__main__:main"]},
+    py_modules=["rmbyext"],
+    entry_points={"console_scripts": ["rmbyext=rmbyext:main"]},
 )
