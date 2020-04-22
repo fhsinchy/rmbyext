@@ -3,7 +3,7 @@ from pathlib import Path
 
 def main():
     args = sys.argv[1:]
-    if len(args) > 1:
+    if len(args) > 0:
         deleted_file_count = int()
         log = str()
 
