@@ -12,7 +12,7 @@ with open(os.path.join(HERE, "README.md")) as fid:
 setup(
     name="rmbyext",
     version="1.0.0",
-    description="Recursively removes all files with given extension(s)",
+    description="Recursively removes all files of given extension(s)",
     long_description=README,
     long_description_content_type="text/markdown",
     url="https://github.com/fhsinchy/rmbyext",
