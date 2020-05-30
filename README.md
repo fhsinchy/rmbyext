@@ -9,9 +9,7 @@ Assume a situation when you have to delete a lot of files of certain extension r
 ## Installation
 
 ```shell
-git clone https://github.com/fhsinchy/rmbyext.git ~/rmbyext
-cd ~/rmbyext
-pip install .
+pip install git+https://github.com/fhsinchy/rmbyext.git#egg=rmbyext
 pip freeze
 ```
 
