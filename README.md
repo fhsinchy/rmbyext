@@ -39,7 +39,7 @@ Lets say you want to delete all the **PDF** files from a directory. You simply p
 python rmbyext pdf
 ```
 
-The script will look for all **PDF** files recursively and delete all of them. As stated above you can also pass multiple extensions seperated by space
+The script will look for all **PDF** files recursively and delete all of them. As stated above you can also pass multiple extensions separated by space
 
 ```python
 python rmbyext pdf txt
