@@ -23,26 +23,26 @@ rmbyext==1.0.0
 
 Once you have installed the package it should be available everywhere in your system. The generic command for executing this script is
 
-```python
-python rmbyext <file extension>
+```shell
+rmbyext <file extension>
 ```
 
 or in case of multiple extensions
 
-```python
-python rmbyext <file extension> <file extension>
+```shell
+rmbyext <file extension> <file extension>
 ```
 
 Lets say you want to delete all the **PDF** files from a directory. You simply put this script on that directory and execute
 
-```python
-python rmbyext pdf
+```shell
+rmbyext pdf
 ```
 
 The script will look for all **PDF** files recursively and delete all of them. As stated above you can also pass multiple extensions separated by space
 
-```python
-python rmbyext pdf txt
+```shell
+rmbyext pdf txt
 ```
 
 This command will delete all **PDF** and **TXT** files.
