@@ -17,7 +17,7 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/fhsinchy/rmbyext",
     author="Remove by Extension",
-    author_email="mail@farhan.info",
+    author_email="shovik.is.here@gmail.com",
     license="GPL-3.0",
     classifiers=[
         "License :: OSI Approved :: GPL-3.0 License",
